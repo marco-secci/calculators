@@ -82,3 +82,17 @@ function divisionOfNums(numbers: number[]): number {
     }
     return output;
 }
+
+// ============= //
+// MODULO METHOD //
+// ============= //
+function moduloOfNums(a: number, b: number) {
+    a - b * Math.floor(a / b);
+}
+
+// ============ //
+// POWER METHOD //
+// ============ //
+function powerOfNums(a: number, b: number) {
+    return Math.pow(a, b);
+}

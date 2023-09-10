@@ -92,3 +92,25 @@ function divisionOfNumbers(numbers) {
 
     return output;
 }
+
+// ============= //
+// MODULO METHOD //
+// ============= //
+function moduloOfNumbers(a, b) {
+
+    // Type check:
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new TypeError("Both inputs MUST be numbers!!");
+    }
+    return a - b * Math.floor(a / b);
+}
+
+// ============ //
+// POWER METHOD //
+// ============ //
+function powerOfNumbers(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new TypeError("Both inputs MUST be numbers!!");
+    }
+    return Math.pow(a, b);
+}

@@ -101,4 +101,18 @@ public:
         }
         return output;
     }
+
+    // ============= //
+    // MODULO METHOD //
+    // ============= //
+    double moduloOfNumbers(double a, double b) {
+        return a - b * floor(a / b);
+    }
+
+    // ============ //
+    // POWER METHOD //
+    // ============ //
+    double powerOfNumbers(double a, double b) {
+        return std::pow(a, b);
+    }
 };

@@ -1,5 +1,8 @@
 # Imports:
+import math
 from math import prod
+import numpy as np
+
 
 class Calculator:
 
@@ -86,3 +89,69 @@ class Calculator:
             output /= num
         
         return output
+    
+    # -- For the following two methods, two inputs are enough since you can't do these operation with more than two numbers -- #
+
+    # ============= #
+    # MODULO METHOD #
+    # ============= #
+    def modulo(a, b):
+
+        # Type check:
+        if not isinstance(a, b, (int, float)):
+            raise TypeError("You must input numbers!!")
+    
+        # Output; by using this formula is ensured that operation with non-integers number is
+        # accepted too:
+        return a - b * np.floor_divide(a/b)
+    
+    # ============ #
+    # POWER METHOD #
+    # ============ #
+    def power(a, b):
+
+        # Type check:
+        if not isinstance(a, b, (int, float)):
+            raise TypeError("You must input numbers!!")
+        
+        # Output:
+        return math.pow(a, b)
+    
+    # ============ #
+    # ROOT METHODS #
+    # ============ #
+    def square_root(x):
+        
+        # Type check:
+        if not isinstance(x, (int, float)):
+            raise TypeError("Input is NOT a number!")
+        if x < 0:
+            raise ValueError("The square root of a negative number is impossible to make!!")
+        
+        # Final output: 
+        return math.sqrt(x)
+    
+    def cube_root(x):
+
+        # Type check:
+        if not isinstance (x, (int, float)):
+            raise TypeError("Input is NOT a number!!")
+        if x < 0:
+            raise ValueError("Square root of a negative number is impossible!!")
+    
+        # Final output:
+        return math.pow(x, 1/3)
+    
+    def nth_root(x, n):
+
+        # Type check:
+        if not isinstance(x, n,  (int, float)):
+            raise TypeError("Input is NOT a number!!")
+        if x < 0:
+            raise ValueError("Square root of a negative number is impossible!!")
+        
+        # Final output:
+        return math.pow(x, 1/n)
+    
+    # 
+    # LOGARITHM METHODS #

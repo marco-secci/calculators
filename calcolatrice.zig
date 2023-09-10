@@ -25,7 +25,7 @@ pub fn main() !void {
 // ========== //
 
 // The T type of constant means "every type":
-fn sumOfNumbers(comptime T: type, numbers: []const T) !T {
+pub fn sumOfNumbers(comptime T: type, numbers: []const T) !T {
 
     // Type check:
     const type_info = @typeInfo(T);
@@ -48,7 +48,7 @@ fn sumOfNumbers(comptime T: type, numbers: []const T) !T {
 // ================= //
 // DIFFERENCE METHOD //
 // ================= //
-fn differenceOfNumbers(comptime T: type, numbers: []const T) !T {
+pub fn differenceOfNumbers(comptime T: type, numbers: []const T) !T {
 
     // Type check:
     const type_info = @typeInfo(T);
@@ -78,7 +78,7 @@ fn differenceOfNumbers(comptime T: type, numbers: []const T) !T {
 // ============== //
 // PRODUCT METHOD //
 // ============== //
-fn productOfNumbers(comptime T: type, numbers: []const T) !T {
+pub fn productOfNumbers(comptime T: type, numbers: []const T) !T {
 
     // Type check:
     const type_info = @typeInfo(T);
@@ -94,4 +94,34 @@ fn productOfNumbers(comptime T: type, numbers: []const T) !T {
         output *= number;
     }
     return output;
+}
+
+// =============== //
+// DIVISION METHOD //
+// =============== //
+pub fn divisionOfNumbers(comptime T: type, numbers: []const T) T {
+
+    // Empty check:
+    if (numbers.len == 0) return 0;
+
+    var output = numbers[0];
+    for (numbers[1..]) |number| {
+        if (number == 0) @compileError("Division by 0 is NOT possible!!");
+        output /= number;
+    }
+    return output;
+}
+
+// ============= //
+// MODULO METHOD //
+// ============= //
+pub fn moduloOfNumbers(a: f32, b: f32) f32 {
+    return a - b * std.math.floor(a / b) * b;
+}
+
+// ============ //
+// POWER METHOD //
+// ============ //
+pub fn powerOfNumbers(a: f32, b:f32) f32 {
+    return std.math.pow(a, b);
 }

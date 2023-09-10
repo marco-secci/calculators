@@ -1,6 +1,7 @@
 // In C, there is no need of a Type check since it uses static definition of variables and constants:
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // ========== //
 // SUM METHOD //
@@ -85,4 +86,17 @@ double division_of_numbers(double numbers[], int size)
         output /= numbers[i];
     }
     return output;
+}
+// ============= //
+// MODULO METHOD //
+// ============= //
+double modulo_of_numbers(double a, double b) {
+    return a - floor(a / b) * b;
+}
+
+// ============ //
+// POWER METHOD //
+// ============ //
+double power_of_numbers(double a, double b) {
+    return pow(a, b);
 }
